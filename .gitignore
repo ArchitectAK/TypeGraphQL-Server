@@ -1,4 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
-/node_modules/
+node_modules
 /.idea
 /yarn-error.log
+package-lock.json
+/node_modules/
