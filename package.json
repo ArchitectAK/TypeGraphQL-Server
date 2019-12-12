@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "@types/bcryptjs": "^2.4.2",
     "apollo-server-express": "^2.9.13",
+    "bcryptjs": "latest",
     "express": "^4.17.1",
     "graphql": "^14.5.8",
     "npm-check-updates": "^4.0.1",
+    "pg": "^7.14.0",
     "reflect-metadata": "^0.1.13",
     "type-graphql": "^0.17.5",
     "typeorm": "latest"
