@@ -8,10 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
 const type_graphql_1 = require("type-graphql");
 let User = class User extends typeorm_1.BaseEntity {
+    name(parent) {
+        return `${parent.firstName} ${parent.lastName}`;
+    }
 };
 __decorate([
     type_graphql_1.Field(() => type_graphql_1.ID),
@@ -35,8 +41,11 @@ __decorate([
 ], User.prototype, "email", void 0);
 __decorate([
     type_graphql_1.Field(),
-    __metadata("design:type", String)
-], User.prototype, "name", void 0);
+    __param(0, type_graphql_1.Root()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [User]),
+    __metadata("design:returntype", String)
+], User.prototype, "name", null);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
