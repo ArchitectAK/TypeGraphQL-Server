@@ -5,11 +5,11 @@ import { IsEmailAlreadyExist } from "./isEmailAlreadyExist";
 @InputType()
 export class RegisterInput {
     @Field()
-    @Length(1, 255)
+    @Length(2, 30)
     firstName: string;
 
     @Field()
-    @Length(1, 255)
+    @Length(2, 30)
     lastName: string;
 
     @Field()
