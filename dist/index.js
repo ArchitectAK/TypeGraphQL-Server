@@ -42,7 +42,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
         store: new RedisStore({
             client: redis_1.redis
         }),
-        name: "qid",
+        name: "cookie",
         secret: "aslkdfjoiq12312",
         resave: false,
         saveUninitialized: false,
