@@ -1,4 +1,4 @@
-import { Resolver, Query, Mutation, Arg } from "type-graphql";
+import {Resolver, Query, Mutation, Arg, Authorized} from "type-graphql";
 import bcrypt from "bcryptjs";
 
 import { User } from "../../entity/User";
@@ -6,6 +6,7 @@ import { RegisterInput } from "./register/RegisterInput";
 
 @Resolver()
 export class RegisterResolver {
+    @Authorized()
     @Query(() => String)
     async hello() {
         return "Hello World!";

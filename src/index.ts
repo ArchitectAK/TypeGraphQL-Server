@@ -1,13 +1,13 @@
 import "reflect-metadata";
-import { ApolloServer } from "apollo-server-express";
+import {ApolloServer} from "apollo-server-express";
 import Express from "express";
-import { buildSchema } from "type-graphql";
-import { createConnection } from "typeorm";
+import {buildSchema} from "type-graphql";
+import {createConnection} from "typeorm";
 import session from "express-session";
 import connectRedis from "connect-redis";
 import cors from "cors";
 
-import { redis } from "./redis";
+import {redis} from "./redis";
 import {RegisterResolver} from "./resolvers/user/Register";
 import {LoginResolver} from "./resolvers/user/Login";
 import {MeResolver} from "./resolvers/user/Me";
@@ -16,7 +16,10 @@ const main = async () => {
     await createConnection();
 
     const schema = await buildSchema({
-        resolvers: [MeResolver, RegisterResolver, LoginResolver]
+        resolvers: [MeResolver, RegisterResolver, LoginResolver],
+        authChecker: ({context: {req}}) => {
+            return !!req.session.userId;
+        }
     });
     const apolloServer = new ApolloServer({
         schema, context: ({req}: any) => ({req})
