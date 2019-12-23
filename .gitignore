@@ -1,6 +1,6 @@
-# Created by .ignore support plugin (hsz.mobi)
-.idea/
-yarn-error.log
-package-lock.json
-node_modules/
+# package directories
+node_modules
 jspm_packages
+
+# Serverless directories
+.serverless
